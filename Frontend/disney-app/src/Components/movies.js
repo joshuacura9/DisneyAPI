@@ -7,6 +7,7 @@ const Movies = (props) => {
 			<Movie 
 				key={movie.rowid}
 				movie={movie}
+				deleteMovie={props.deleteMovie}
 			/>
 		)
 	}) 

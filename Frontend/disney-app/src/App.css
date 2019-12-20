@@ -28,4 +28,26 @@ a {
 	font-size: 10px;
 }
 
+.remove {
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 7px;
+
+
+}
+
+.Movie_item {
+  font-size: 30px;
+}
+
+#addTask {
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 6px;  
+}
+
+#newItemDescription {
+  font-size: 18px;
+}
+
 

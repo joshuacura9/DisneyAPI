@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import MovieModel from '../models/model.js'
 import Movies from './movies'; 
-
 import CreateMovieForm from './CreateMovieForm';
 
 
@@ -35,11 +34,6 @@ class MovieContainer extends Component {
 			});
 	}
 
-	//createMovie = (movies) => {
-		//axios.post('http://localhost:5000/api/movies', {
-		//	movies
-		//}) .then(res => this.setState({movies: res.data}))
-	//}
 
 	createMovie = (data) => {
 		let newMovie = {
@@ -52,12 +46,28 @@ class MovieContainer extends Component {
 	}
 
 
+	deleteMovie = (movie) => {
+		
+		let idToDelete = movie.rowid
+		MovieModel.delete(idToDelete).then(res => {
+			let movies = this.state.movies.filter(movie => {
+				return movie.rowid !== idToDelete;
+			})
+			this.setState({ movies })
+		})
+	}
+
+
+
+
 
 	render() {
 		return ( 
 			<div> 
 				{this.state.movies.length ? 
-				<Movies moviedata={this.state.movies} /> : 
+				<Movies moviedata={this.state.movies}  
+				deleteMovie={this.deleteMovie}
+				/>: 
 				"Can't get data"}
 				
 				<div>

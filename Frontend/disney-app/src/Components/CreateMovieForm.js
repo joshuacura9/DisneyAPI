@@ -24,7 +24,7 @@ class CreateMovieForm extends Component {
     return (
       <div>
         <form onSubmit={this.onFormSubmit} id="taskForm">
-          <input  
+          <input
             onChange={this.onInputChange} 
             type="text" id="newItemDescription" 
             name='movie'
