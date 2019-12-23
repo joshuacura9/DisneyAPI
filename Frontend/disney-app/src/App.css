@@ -50,4 +50,10 @@ a {
   font-size: 18px;
 }
 
+.edit {
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 6px;
+
+}
 

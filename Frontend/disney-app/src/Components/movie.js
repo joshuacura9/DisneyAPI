@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
+import MovieForm from './MovieForm';
 
 class Movie extends Component {
 	
+	state = {
+    	formStyle: {
+      display: 'none'
+    	}
+  	}
+
+  	toggleBodyForm = () => {
+    	this.state.formStyle.display === 'block'
+    		? this.setState({ formStyle: { display: 'none' } })
+    		: this.setState({ formStyle: { display: 'block' } })
+  }
 
 	
 	deleteClickedMovie = () => {
@@ -25,6 +37,20 @@ class Movie extends Component {
           		onClick={this.deleteClickedMovie}>
           		Remove
          		</button>
+         	 <button
+            className='edit' 
+            onClick={this.toggleBodyForm}>
+            Edit
+          	</button>
+			
+         	 <MovieForm 
+          		movie={this.props.movie}
+          		style={this.state.formStyle}
+          		autoFocus={true}
+          		buttonName="Update Movie!"
+          		updateMovie={this.props.updateMovie}
+          		toggleBodyForm={this.toggleBodyForm} />
+
 			</li>
 		</ul>
 		)

@@ -33,8 +33,21 @@ class Model {
     	return fetch(`${movieEndPoint}/${movie}`, { 
       		method: "DELETE" 
     })
-      //.then(response => response.json())
-      .catch(err => console.log('Could not delete movie \n', err));
+     	 //.then(response => response.json())
+      	.catch(err => console.log('Could not delete movie \n', err));
+    }
+    static update = (movie) => {
+    	return fetch(`${movieEndPoint}/${movie.rowid}`, {
+      		method: 'PUT',
+      		headers: {
+        		'Content-Type': 'application/json'
+      		},
+      		body: JSON.stringify(movie)
+    })
+      	.then(response => response.json())
+      	.catch(err => console.log('Could not update movie \n', err));
+
+
   };
 } 
 

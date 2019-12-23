@@ -58,6 +58,21 @@ class MovieContainer extends Component {
 	}
 
 
+	
+
+
+
+	updateMovie = (movie) => {
+		MovieModel.update(movie)
+		.then(data => {
+			this.setState({ movies: data });   
+		})
+	}
+
+
+
+
+
 
 
 
@@ -67,6 +82,7 @@ class MovieContainer extends Component {
 				{this.state.movies.length ? 
 				<Movies moviedata={this.state.movies}  
 				deleteMovie={this.deleteMovie}
+				updateMovie={ this.updateMovie }
 				/>: 
 				"Can't get data"}
 				

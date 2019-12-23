@@ -98,7 +98,17 @@ app.put('/api/movies/:id', (req,res) => {
       res.sendStatus(500);
     } else {
       console.log(`Movie with ID ${movieId} was updated successfully`);
-      res.sendStatus(200);
+      
+      // SEND ALL AS JSON RESPONSE
+      const getAllMovies = "SELECT oid, title FROM movies";
+
+      database.all(getAllMovies, (error, results) => {
+        if (error) {
+          console.log(new Error('Could not get all movies'), error);
+          res.sendStatus(500);
+        }
+        res.status(200).json(results);
+      });
     }
   });
 });
