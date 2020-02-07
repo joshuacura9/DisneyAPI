@@ -13,7 +13,7 @@ class Movie extends Component {
     	this.state.formStyle.display === 'block'
     		? this.setState({ formStyle: { display: 'none' } })
     		: this.setState({ formStyle: { display: 'block' } })
-  }
+  	}
 
 	
 	deleteClickedMovie = () => {
